@@ -1,0 +1,55 @@
+<!--<div>
+  <h2>Listado de Posts</h2>
+
+  <ul>
+    <li *ngFor="let post of posts">
+      <h3>{{ post.titulo }}</h3>
+      <p>{{ post.contenido }}</p>
+      <button (click)="editPost(post.id_posts)">Editar</button>
+      <button (click)="deletePost(post.id_posts)">Eliminar</button>
+    </li>
+    <br>
+  </ul>
+  
+  <form (submit)="createPost()">
+    <input type="text" name="titulo" [(ngModel)]="newPost.titulo">
+    <br>
+    <input type="text" name="contenido" [(ngModel)]="newPost.contenido">
+    <br>
+    <button type="submit">Crear Post</button>
+  </form>
+  <br>
+</div>-->
+<div>
+  <h2>Listado de Posts 2</h2>
+
+  <ul>
+    <li *ngFor="let post of posts">
+      <h3>{{ post.titulo }}</h3>
+      <p>{{ post.contenido }}</p>
+      <button (click)="editPost(post)">Editar</button>
+      <button (click)="deletePost(post.id_posts)">Eliminar</button>
+    </li>
+    <br>
+  </ul>
+  
+  <form *ngIf="!editMode" (submit)="createPost()">
+    <input type="text" name="titulo" [(ngModel)]="newPost.titulo">
+    <br>
+    <input type="text" name="contenido" [(ngModel)]="newPost.contenido">
+    <br>
+    <button type="submit">Crear Post</button>
+  </form>
+  
+  <form *ngIf="editMode" (submit)="updatePost()">
+    <input type="hidden" name="id_posts" [(ngModel)]="newPost.id_posts">
+    <input type="text" name="titulo" [(ngModel)]="newPost.titulo">
+    <br>
+    <input type="text" name="contenido" [(ngModel)]="newPost.contenido">
+    <br>
+    <button type="submit">Actualizar Post</button>
+    <button (click)="resetForm()">Cancelar</button>
+  </form>
+  
+  <br>
+</div>
