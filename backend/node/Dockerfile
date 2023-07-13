@@ -6,5 +6,4 @@ COPY ./package.json ./
 RUN npm install
 RUN npm install -g @angular/cli && npm cache clean 
 COPY ./ ./
-EXPOSE 4200
-CMD ["npm","start"]
+CMD ["node","index.js"]
